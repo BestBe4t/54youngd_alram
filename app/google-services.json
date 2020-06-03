@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "862313046022",
+    "firebase_url": "https://jotso-dc38e.firebaseio.com",
+    "project_id": "jotso-dc38e",
+    "storage_bucket": "jotso-dc38e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862313046022:android:018b5b05b32352aabae387",
+        "android_client_info": {
+          "package_name": "com.example.jotso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862313046022-f7dhalj7p5gt5qr61ufp07rv7dbd0hck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jotso",
+            "certificate_hash": "9841b4fea6c023c15557b84a7bfd71f297f092af"
+          }
+        },
+        {
+          "client_id": "862313046022-647lgeh9udm2isqmmr7j9iug0i5gqnth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD60nhX8Vt4HgwY8uUlYe_tHa3foOSVGCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862313046022-647lgeh9udm2isqmmr7j9iug0i5gqnth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
