@@ -39,7 +39,7 @@ class MYFirebaseMessagingService : FirebaseMessagingService() {
         val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         var notificationBuilder = NotificationCompat.Builder(this, "Notification")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle("5454")
             .setContentText(body)
             .setAutoCancel(true)

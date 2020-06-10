@@ -1,10 +1,8 @@
-package com.example.jotso.ui.main
+package com.example.jotso.ui.yongd
 
 import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -12,15 +10,18 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModel
 import com.example.jotso.R
+import org.jsoup.Connection
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 
-class MainViewModel : ViewModel() {
+class MainYongdViewModel : ViewModel() {
     companion object{
         val titile = "5454"
         val content = "Notification test"
         val NOTIFICATION_ID = 1001
+        val URL = "https://www.youtube.com/channel/UCPE3HrEDpXeAB0_d1uLwAdQ"
     }
 
-    // TODO: Implement the ViewModel
     fun createNotificationChannel(context: Context, importance: Int, showBadge: Boolean, name: String, description: String){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val channelId = "${context.packageName}-$name"
@@ -54,5 +55,15 @@ class MainViewModel : ViewModel() {
         }else{
             connectivityManager.activeNetworkInfo?.isConnectedOrConnecting == true
         }
+    }
+
+    fun getSource():Document{
+        val url = URL
+        val doc = Jsoup.connect(url).method(Connection.Method.GET).execute()
+
+        val title = doc.parse()
+
+
+        return title
     }
 }
