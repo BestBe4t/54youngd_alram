@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        val ab = supportActionBar
+
+        ab!!.setIcon(R.drawable.ic_launcher)
+        ab.setDisplayUseLogoEnabled(true)
+        ab.setDisplayShowHomeEnabled(true)
 
         val now_state = Now_State()
         now_state.observe(this, Observer { livedata ->
