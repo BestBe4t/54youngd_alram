@@ -3,6 +3,7 @@ package com.example.jotso.ui.yongd
 import android.app.NotificationChannel
 import android.app.PendingIntent
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -10,6 +11,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModel
 import com.example.jotso.R
+import com.example.jotso.data.list_item
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -20,6 +22,7 @@ class MainYongdViewModel : ViewModel() {
         val content = "Notification test"
         val NOTIFICATION_ID = 1001
         val URL = "https://www.youtube.com/channel/UCPE3HrEDpXeAB0_d1uLwAdQ"
+        val PREFS = "54YongD"
     }
 
     fun createNotificationChannel(context: Context, importance: Int, showBadge: Boolean, name: String, description: String){
@@ -60,10 +63,23 @@ class MainYongdViewModel : ViewModel() {
     fun getSource():Document{
         val url = URL
         val doc = Jsoup.connect(url).method(Connection.Method.GET).execute()
-
         val title = doc.parse()
-
-
         return title
+    }
+
+    fun getList(context: Context): ArrayList<list_item>{
+        val Video_list=ArrayList<list_item>()
+        val prfs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+
+        for(i in 0..prfs.getInt("cnt", 0)){
+            var s_title = "title"+i.toString()
+            var s_content = "content"+i.toString()
+            var title = prfs.getString(s_title, "Test_Title")
+            var content = prfs.getString(s_content, "Test_Content")
+
+            Video_list.add(list_item(i, title!!, content!!))
+        }
+
+        return Video_list
     }
 }

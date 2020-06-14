@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             init {
-                val username = prefs.getString("username", "yong54d")
+                val username = prefs.getString("username", "yong54")
                 Log.d(TAG, username+" : username")
 
                 value = when{

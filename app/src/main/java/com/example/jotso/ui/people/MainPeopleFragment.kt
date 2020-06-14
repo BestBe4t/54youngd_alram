@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.jotso.R
@@ -49,5 +50,10 @@ class MainPeopleFragment : Fragment() {
         peopleViewModel.sendNotidication(this.context!!.applicationContext, channelId, pendingIntent)
 
         Log.d(TAG, "People")
+
+
+        if (!peopleViewModel.isInternetConnected(this.context!!.applicationContext)) {
+            Toast.makeText(this.context!!.applicationContext, "인터넷이 연결되어 있지 않습니다!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
