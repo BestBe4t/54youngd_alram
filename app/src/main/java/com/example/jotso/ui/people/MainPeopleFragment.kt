@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.jotso.R
+import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.main_people_fragment.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -24,6 +25,8 @@ class MainPeopleFragment : Fragment() {
     companion object {
         fun newInstance() = MainPeopleFragment()
         val TAG = "People"
+        var a_cnt = 0
+        var b_cnt = 0
     }
 
     private lateinit var peopleViewModel: MainPeopleViewModel
@@ -54,6 +57,14 @@ class MainPeopleFragment : Fragment() {
 
         if (!peopleViewModel.isInternetConnected(this.context!!.applicationContext)) {
             Toast.makeText(this.context!!.applicationContext, "인터넷이 연결되어 있지 않습니다!", Toast.LENGTH_SHORT).show()
+        }
+
+        jot_imageA.setOnClickListener {
+            a_cnt++
+        }
+
+        jot_imageB.setOnClickListener {
+            b_cnt++
         }
     }
 }
