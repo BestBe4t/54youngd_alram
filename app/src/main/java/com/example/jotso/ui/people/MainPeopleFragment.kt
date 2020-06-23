@@ -1,8 +1,11 @@
 package com.example.jotso.ui.people
 
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Message
@@ -11,6 +14,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModelProvider
@@ -25,8 +29,6 @@ class MainPeopleFragment : Fragment() {
     companion object {
         fun newInstance() = MainPeopleFragment()
         val TAG = "People"
-        var a_cnt = 0
-        var b_cnt = 0
     }
 
     private lateinit var peopleViewModel: MainPeopleViewModel
@@ -53,18 +55,5 @@ class MainPeopleFragment : Fragment() {
         peopleViewModel.sendNotidication(this.context!!.applicationContext, channelId, pendingIntent)
 
         Log.d(TAG, "People")
-
-
-        if (!peopleViewModel.isInternetConnected(this.context!!.applicationContext)) {
-            Toast.makeText(this.context!!.applicationContext, "인터넷이 연결되어 있지 않습니다!", Toast.LENGTH_SHORT).show()
-        }
-
-        jot_imageA.setOnClickListener {
-            a_cnt++
-        }
-
-        jot_imageB.setOnClickListener {
-            b_cnt++
-        }
     }
 }

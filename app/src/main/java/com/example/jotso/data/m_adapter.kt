@@ -38,12 +38,10 @@ class m_adapter(context: Context, data:ArrayList<list_item>): BaseAdapter() {
 
         val num = view.findViewById<TextView>(R.id.Num)
         val title = view.findViewById<TextView>(R.id.Title)
-        val content = view.findViewById<TextView>(R.id.Content)
 
         try {
         num.setText(list.get(position).get_num()!!.toString())
         title.setText(list.get(position).get_title()!!)
-        content.setText(list.get(position).get_Content()!!)
 
         return view
         }catch (e: Resources.NotFoundException){

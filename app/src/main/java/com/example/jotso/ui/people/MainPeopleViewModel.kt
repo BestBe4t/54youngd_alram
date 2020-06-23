@@ -19,7 +19,6 @@ class MainPeopleViewModel : ViewModel() {
         val titile = "5454"
         val content = "Notification test"
         val NOTIFICATION_ID = 1001
-        val URL = "https://www.youtube.com/channel/UCPE3HrEDpXeAB0_d1uLwAdQ"
     }
 
     fun createNotificationChannel(context: Context, importance: Int, showBadge: Boolean, name: String, description: String){
@@ -42,28 +41,5 @@ class MainPeopleViewModel : ViewModel() {
 
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(NOTIFICATION_ID, builder.build())
-    }
-
-    fun isInternetConnected(context: Context): Boolean{
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            val networkCap = connectivityManager.activeNetwork ?: return false
-            val actNw = connectivityManager.getNetworkCapabilities(networkCap) ?: return false
-
-            actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) ||actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-        }else{
-            connectivityManager.activeNetworkInfo?.isConnectedOrConnecting == true
-        }
-    }
-
-    fun getSource():Document{
-        val url = URL
-        val doc = Jsoup.connect(url).method(Connection.Method.GET).execute()
-
-        val title = doc.parse()
-
-
-        return title
     }
 }

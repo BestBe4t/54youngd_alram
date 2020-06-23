@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">JotSo</string>
-    <string name ="url">https://www.youtube.com/channel/UCPE3HrEDpXeAB0_d1uLwAdQ</string>
+    <string name ="msg_subscribved">메세지 구독</string>
+    <string name ="msg_subscribe_failed">메세지 구독 실패</string>
+    <string name ="msg_token_fmt">FMT 메세지 토큰</string>
 </resources>
